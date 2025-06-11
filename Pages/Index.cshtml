@@ -5,7 +5,22 @@
 }
 
 <div class="text-center position-absolute top-50 start-50 translate-middle">
-    <h1 class="display-4">Url Shortner</h1>
-    <input type="text" id="urlInput" class="form-control form-control-sm" placeholder="Enter URL to shorten" />
-    <button id="shortenButton" class="btn btn-primary mt-2">Shorten</button>
+    <h1 class="display-4 mb-4">URL Shortner</h1>
+    <form method="post" class="d-flex flex-column align-items-center">
+        <div class="mb-3 w-100">
+            <!-- Container para input + mensagem -->
+            <div class="input-group">
+                <input asp-for="TargetUrl.Url"
+                       type="text"
+                       id="urlInput"
+                       class="form-control form-control-lg"
+                       placeholder="Enter URL to shorten" />
+                <button type="submit" id="shortenButton" class="btn btn-primary">Shorten</button>
+            </div>
+            <div class="mt-2 w-100 text-start">
+                <!-- Container para mensagem de erro -->
+                <span asp-validation-for="TargetUrl.Url" class="text-danger"></span>
+            </div>
+        </div>
+    </form>
 </div>
