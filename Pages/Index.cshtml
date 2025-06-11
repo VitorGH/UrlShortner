@@ -10,7 +10,7 @@
         <div class="mb-3 w-100">
             <!-- Container para input + mensagem -->
             <div class="input-group">
-                <input asp-for="TargetUrl.Url"
+                <input asp-for="TargetUrl"
                        type="text"
                        id="urlInput"
                        class="form-control form-control-lg"
@@ -19,7 +19,11 @@
             </div>
             <div class="mt-2 w-100 text-start">
                 <!-- Container para mensagem de erro -->
-                <span asp-validation-for="TargetUrl.Url" class="text-danger"></span>
+                <span asp-validation-for="TargetUrl" class="text-danger"></span>
+            </div>
+            <div>
+                <h2>Your Shortened Url</h2>
+                <h3></h3>
             </div>
         </div>
     </form>
