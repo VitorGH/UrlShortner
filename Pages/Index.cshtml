@@ -5,26 +5,27 @@
 }
 
 <div class="text-center position-absolute top-50 start-50 translate-middle">
+    
     <h1 class="display-4 mb-4">URL Shortner</h1>
+    
     <form method="post" class="d-flex flex-column align-items-center">
         <div class="mb-3 w-100">
-            <!-- Container para input + mensagem -->
             <div class="input-group">
-                <input asp-for="TargetUrl"
-                       type="text"
-                       id="urlInput"
-                       class="form-control form-control-lg"
-                       placeholder="Enter URL to shorten" />
+                <input asp-for="TargetUrl" type="text" id="urlInput" class="form-control form-control-lg" placeholder="Enter URL to shorten" />
                 <button type="submit" id="shortenButton" class="btn btn-primary">Shorten</button>
             </div>
+            
             <div class="mt-2 w-100 text-start">
-                <!-- Container para mensagem de erro -->
                 <span asp-validation-for="TargetUrl" class="text-danger"></span>
             </div>
-            <div>
-                <h2>Your Shortened Url</h2>
-                <h3></h3>
-            </div>
+
+            @if (!string.IsNullOrEmpty(Model.ShortUrl))
+            {
+                <div>
+                    <p style="display: inline">Your shortned URL: </p>
+                    <a href="@Model.ShortUrl">@Model.ShortUrl</a>
+                </div>
+            }
         </div>
     </form>
 </div>

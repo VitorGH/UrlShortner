@@ -21,27 +21,19 @@ public class IndexModel : PageModel
     [Url(ErrorMessage = "Formata de URL inválido")]
     [Display(Name = "URL Original")]
     public string? TargetUrl { get; set; }
+    public string ShortUrl { get; set; }
+    public static string InitialText = "https://vitor_barroso/";
 
     public void OnGet()
     {
-        Console.WriteLine("OnGet");
+
     }
 
     public void OnPost()
     {
-        Console.WriteLine("OnPost");
-        Console.WriteLine("URL recebida: " + TargetUrl);
-        if (!ModelState.IsValid)
-        {
-            Console.WriteLine("Falhou!");
-            return;
-        }
+        if (!ModelState.IsValid) return;
 
         string code = ShortenUrlGenerator.GenerateShortCode();
-        UrlData urlData = new UrlData(TargetUrl!, code);
-
-        Console.WriteLine("OriginalUrl: " + urlData.OriginalUrl );
-        Console.WriteLine("OriginalUrl: " + urlData.ShortenUrl);
-        Console.WriteLine("Code: " + urlData.Code);
+        ShortUrl = InitialText + code;
     }
 }

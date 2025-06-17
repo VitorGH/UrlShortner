@@ -5,7 +5,7 @@ namespace UrlShortner.Model
 {
     public class UrlData
     {
-        public static string InitialText = "https://vitor_barroso/";
+
         public string? OriginalUrl { get; set; }
         public string? ShortenUrl { get; set; }
         public string Code { get; set; }
@@ -14,7 +14,6 @@ namespace UrlShortner.Model
         {
             OriginalUrl = originalUrl;
             Code = code;
-            ShortenUrl = InitialText + code;
         }
     }
 }
